@@ -4,7 +4,7 @@
 }
 .app-body{
   background-color: #2C394B;
-  height: calc(100vh - 100px)
+  height: 100%;
 }
 nav{
   position: sticky;
@@ -37,8 +37,6 @@ nav{
   color: #ff4d29;
 }
 footer{
-  position: absolute;
-  bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,4 +44,33 @@ footer{
   width: 100%;
   background-color: #082032;
   color: white;
+}
+.search-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search-box{
+  border: 1px solid lightgray;
+  background-color: white;
+  height: 30px;
+  width: 200px;
+  border-radius: 20px;
+  padding-left: 10px;
+  outline: none;
+}
+#search-box:focus{
+ 
+  border: 2px solid #ff4d29;
+}
+#search-button{
+  margin-left: 10px;
+  background-color: white;
+  border: none;
+  width: 100px;
+  height: 20px;
+  border-radius: 20px;
+}
+#search-button:hover{
+  border: 1px solid #ff4d29;
 }

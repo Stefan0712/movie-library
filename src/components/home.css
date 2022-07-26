@@ -1,4 +1,5 @@
 .popular-movies-container{
-    height: 250px;
-    border: 1px solid white;
+    height: 50%;
+    flex-wrap: wrap;
+    display: flex;
 }
