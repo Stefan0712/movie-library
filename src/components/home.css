@@ -1,5 +1,31 @@
 .popular-movies-container{
-    height: 50%;
-    flex-wrap: wrap;
+    height: 400px;
     display: flex;
+    overflow-x: scroll;
+    background-color: #082032c5;
+    padding-top: 20px;
+    position: relative;
+    scroll-behavior: smooth;
+}
+.home-arrows{
+    filter: invert();
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    z-index: 1000;
+    cursor: pointer;
+    height: 100%;
+    width: 50px;
+    user-select: none;
+}
+.home-arrows:hover{
+    background-color: rgba(211, 211, 211, 0.637);
+}
+#home-left-arrow{
+    left: 0px;
+}
+#home-right-arrow{
+    right:0px;
 }

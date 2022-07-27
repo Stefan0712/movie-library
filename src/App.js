@@ -13,8 +13,6 @@ function App() {
   const [popularMovies, setPopularMovies] = useState([])
 
   useEffect(()=>{
-  //   fetch("https://api.themoviedb.org/3/search/movie?api_key=1d23eb17c73e05952dad0294acb0007d&query=Jack+Reacher")
-  // .then((res) => res.json()).then((json)=>console.log(json))
       fetch(POPULAR_API).then(res=>res.json()
       ).then(data =>{
         setPopularMovies(data.results)

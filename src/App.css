@@ -2,6 +2,22 @@
   padding: 0px;
   margin: 0px;
 }
+
+::-webkit-scrollbar{
+  background-color: #082032;
+  width: 5px;
+  height: 10px;
+  margin: 0px;
+  padding: 0px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: black;
+}
+
+
+
+
+
 .app-body{
   background-color: #2C394B;
   height: 100%;

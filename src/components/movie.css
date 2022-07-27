@@ -1,6 +1,7 @@
 .movie-container{
     height: 360px;
     width: 200px;
+    min-width: 200px;
     color: white;
     margin: 5px;
     border-radius: 5px;
@@ -8,6 +9,7 @@
     overflow: hidden;
     background-color: #04293A;
 }
+
 .movie-posters{
     width: 200px;
     height: 250px;
@@ -45,7 +47,7 @@
     background-color: white;
     color: black;
     padding: 1rem;
-    transform: translateY(100%);
+    transform: translateY(102%);
     transition: transform 0.3s ease-in-out;
     max-height: 90%;
     overflow: auto;
