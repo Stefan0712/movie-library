@@ -10,7 +10,6 @@ function App() {
   const POPULAR_API = "https://api.themoviedb.org/3/movie/popular?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1"
 
 
-  const [testData, setTestData]= useState("test")
   const [popularMovies, setPopularMovies] = useState([])
 
   useEffect(()=>{

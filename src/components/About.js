@@ -8,7 +8,7 @@ const About = () => {
     <div className="about-body">
             <h1>ABOUT</h1>
         <p>This website is a mock website built as an assigment from TheOdinProject. </p>
-        <p>This is NOT made fo commercial use.</p>
+        <p>This is NOT made for commercial use.</p>
         <p>Anything used in the making of this website is NOT owned by me.</p>
         <p>Please contact me for any inconvenience or issue.</p>
 

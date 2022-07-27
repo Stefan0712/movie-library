@@ -1,9 +1,8 @@
-import {useState, useRef, useEffect} from "react"
+
 import "./movie.css"
 const Movie = (props) => {
 
     const IMG_API = "https://image.tmdb.org/t/p/w1280"
-    useEffect(()=>{console.log(IMG_API)})
 
     return ( 
             <div className="movie-container" id={props.data.id}>
@@ -17,7 +16,11 @@ const Movie = (props) => {
                     <div className="vote-avg">Avg vote: {props.data.vote_average}</div>
                     <div className="vote-count">Total votes: {props.data.vote_count}</div>
                 </div>
-
+                
+                <div className="overview-container">
+                    <h3>Overview:</h3>
+                    {props.data.overview}
+                </div>
             </div>
 
 
