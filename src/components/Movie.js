@@ -1,13 +1,20 @@
 
 import "./movie.css"
+import noPhoto from '../images/no-photo.png'
+
+
+
 const Movie = (props) => {
 
     const IMG_API = "https://image.tmdb.org/t/p/w1280"
 
+
     return ( 
             <div className="movie-container" id={props.data.id}>
                 <div className="poster-container">
-                <img className="movie-posters" src={IMG_API+props.data.poster_path} alt={props.data.title}></img>
+                <object data={IMG_API+props.data.poster_path} type="image/png" alt={props.data.title} className="movie-posters">
+                    <img className="movie-posters" src={noPhoto} alt={props.data.title}></img>
+                </object>
                 </div>
                 <div className="info-section">
 

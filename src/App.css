@@ -34,7 +34,7 @@ nav{
 }
 #logo{
   height: 50px;
-  filter: invert();
+  filter: invert(44%) sepia(93%) saturate(4414%) hue-rotate(347deg) brightness(114%) contrast(101%);
   margin-left: 50px;
 }
 .logo-container{
@@ -47,8 +47,9 @@ nav{
   align-items: center;
   justify-content: space-evenly;
   margin-left: auto;
-  margin-right: 100px;
-  width: 25%;
+  margin-right: 50px;
+  width: 20%;
+  min-width: 400px;
 }
 .nav-links a{
   text-decoration: none;
@@ -63,32 +64,9 @@ footer{
   background-color: #082032;
   color: white;
 }
-.search-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#search-box{
-  border: 1px solid lightgray;
-  background-color: white;
-  height: 30px;
-  width: 200px;
-  border-radius: 20px;
-  padding-left: 10px;
-  outline: none;
-}
-#search-box:focus{
- 
-  border: 2px solid #ff4d29;
-}
-#search-button{
-  margin-left: 10px;
-  background-color: white;
-  border: none;
-  width: 100px;
+#search-icon{
   height: 20px;
-  border-radius: 20px;
-}
-#search-button:hover{
-  border: 1px solid #ff4d29;
+  width: 20px;
+  margin-right: 10px;
+  filter: invert(44%) sepia(93%) saturate(4414%) hue-rotate(347deg) brightness(114%) contrast(101%);
 }

@@ -1,4 +1,14 @@
-.popular-movies-container{
+
+.home-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100vw;
+    overflow-x: scroll;
+}
+
+
+.popular-movies{
     height: 400px;
     display: flex;
     overflow-x: scroll;
@@ -7,6 +17,10 @@
     position: relative;
     scroll-behavior: smooth;
 }
+.popular-movies-container{
+    border: 1px solid #082032c5;
+}
+
 .home-arrows{
     filter: invert();
     position: sticky;
@@ -29,3 +43,61 @@
 #home-right-arrow{
     right:0px;
 }
+
+.incoming-movies{
+    height: 400px;
+    display: flex;
+    overflow-x: scroll;
+    background-color: #082032c5;
+    padding-top: 20px;
+    position: relative;
+    scroll-behavior: smooth;
+}
+.incoming-movies-container{
+    position: relative;
+
+}
+.categories-text{
+    color: white;
+    margin: 25px;
+    height: 50px;
+    
+}
+.featured-movie-container{
+    height: 400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    width: 50%;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+    background-color: #082032c5;
+}
+.featured-movie-img-container{
+    height: 400px;
+    
+    padding-left: 200px;
+    grid-column: 2 / 3;
+    grid-row: 1 /3;
+}
+#featured-img{
+    height: 400px;
+}
+.featured-movie-info-container{
+    color: white;
+}
+.featured-release{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.featured-movie-info-container h2{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.featured-overview{
+    margin-left: 10px;
+}
+

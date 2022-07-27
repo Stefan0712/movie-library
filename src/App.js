@@ -1,37 +1,10 @@
 import {Link, Outlet} from "react-router-dom"
-import {useState, useRef, useEffect} from "react"
 import './App.css';
 import logo from "./logo.png"
-import Movie from "./components/Movie";
+import searchIcon from "./images/search.png"
 
 function App() {
   //api key = 1d23eb17c73e05952dad0294acb0007d
-  const searchBoxRef = useRef()
-  const POPULAR_API = "https://api.themoviedb.org/3/movie/popular?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1"
-
-
-  const [popularMovies, setPopularMovies] = useState([])
-
-  useEffect(()=>{
-      fetch(POPULAR_API).then(res=>res.json()
-      ).then(data =>{
-        setPopularMovies(data.results)
-        console.log(popularMovies)
-      })
-     
-
-
-
-
-
-
-},[])
-
-  const handleSearch = () =>{
-    console.log(searchBoxRef.current.value)
-  }
-
-
 
 
 
@@ -43,18 +16,16 @@ function App() {
         <div className='logo-container'>
           <img src={logo} alt="logo" id="logo"></img>
         </div>
-        <div className="search-container">
-          <input ref={searchBoxRef} type="text" id="search-box" placeholder="Search a movie by name..."></input>
-          <button id="search-button" onClick={handleSearch}>Search</button>
-        </div>
+       
         <div className='nav-links'>
+          <Link to="./search"><img src={searchIcon} alt="search icon" id="search-icon"></img>Search</Link>
           <Link to="./home">Home</Link>
           <Link to="./top">Top Movies</Link>
           <Link to="./about">About</Link>
         </div>
       </nav>
       <div className="app-body">
-        <Outlet context={[popularMovies, setPopularMovies]}/>
+        <Outlet />
       </div>
       <footer>
         <p>This website is made for TheOdinProject</p>
