@@ -3,10 +3,8 @@ import './App.css';
 import logo from "./logo.png"
 import searchIcon from "./images/search.png"
 import {useEffect, useRef, useState} from "react"
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 function App() {
-  //api key = 1d23eb17c73e05952dad0294acb0007d
   const navMenuBtnRef = useRef()
   const navMenuRef = useRef()
   const [isMenuActive, setIsMenuActive] = useState(false)

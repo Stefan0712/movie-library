@@ -81,11 +81,7 @@ const Home = () => {
     <div className="home-body">
         <button id="scroll-to-top-btn" onClick={scrollToTheTop}>^</button>
         <div className="featured-movie-container">
-            <h2 className="categories-text">{featured.title}</h2>
-            <div className="featured-movie-img-container">
-                <img id="featured-img" src={`https://image.tmdb.org/t/p/w1280${featured.poster_path}`} alt={featured.title}></img>
-            </div>
-            <div className="featured-movie-info-container">
+        <div className="featured-movie-info-container">
                 <div className="featured-release">{featured.release_date}</div>
                 <div className="featured-vote-count">Vote count: {featured.vote_count}</div>
                 <div className="featured-vote">Average vote: {featured.vote_average}</div>
@@ -94,6 +90,10 @@ const Home = () => {
 
             </div>
 
+            <div className="featured-movie-img-container">
+                <img id="featured-img" src={`https://image.tmdb.org/t/p/w1280${featured.poster_path}`} alt={featured.title}></img>
+            </div>
+           
             
         </div>
         <div className="popular-movies-container">
