@@ -28,7 +28,7 @@
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    z-index: 1000;
+    z-index: 3;
     cursor: pointer;
     height: 100%;
     width: 50px;
@@ -44,7 +44,8 @@
     right:0px;
 }
 
-.incoming-movies{
+.incoming-movies,
+.tv-airing-movies{
     height: 400px;
     display: flex;
     overflow-x: scroll;
@@ -53,7 +54,8 @@
     position: relative;
     scroll-behavior: smooth;
 }
-.incoming-movies-container{
+.incoming-movies-container,
+.tv-airing-movies-container{
     position: relative;
 
 }
@@ -101,3 +103,50 @@
     margin-left: 10px;
 }
 
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    /*featured film section */
+    .featured-movie-container{
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: #082032c5;
+    }
+    .featured-movie-info-container{
+        color: white;
+        padding: 10px;
+    }
+    .featured-movie-info-container h2{
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    .featured-movie-container .categories-text{
+        display: none;
+    }
+    .featured-movie-img-container{
+        height: auto;
+        width: 100%;
+        padding-left: 0px;
+        
+    }
+    #featured-img{
+        margin-top: 10px;
+        height: auto;
+        width: calc(100% - 10px);
+    }
+    
+    .featured-release{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .featured-overview{
+        margin-left: 10px;
+    }
+    
+  }

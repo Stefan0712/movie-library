@@ -44,8 +44,12 @@ const Top = () => {
             toggleActiveButton()
         }
 
+        const scrollToTheTop = () =>{
+            window.scrollTo(0,0)
+        }
     return (
         <div> <div ref={bodyRef} className="top-movies-body">
+            <button id="scroll-to-top-btn" onClick={scrollToTheTop}>^</button>
             {popularMovies.map(item=><Movie data={item} top={"top"}/>)  }
         </div>
         <div className="top-movies-navigation-body">
@@ -55,6 +59,7 @@ const Top = () => {
                 <div className="right-arrow" onClick={nextPage}>&#187;</div>
             </div>
         </div>
+        
     </div> );
 }
  
