@@ -19,7 +19,7 @@ function App() {
     }
   }
   const handleMenubtnClick = ()=>{
-    setIsMenuActive(false);
+      setIsMenuActive(false);
       navMenuRef.current.style.display = "none";
   }
 

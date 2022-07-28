@@ -30,7 +30,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
 }
 #search-button-icon{
         height: 30px;
