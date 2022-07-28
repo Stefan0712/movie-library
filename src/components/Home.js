@@ -56,6 +56,7 @@ const Home = () => {
         fetch(TV_POPULAR_API).then(res=>res.json()
         ).then(data =>{
           setTvPopular(data.results)
+          console.log(data.results)
         })
 
         
@@ -119,7 +120,7 @@ const Home = () => {
             </div>
             
         </div>
-        <div className="-tv-airing-movies-container">
+        <div className="tv-airing-movies-container">
             <h2 className="categories-text">TV popular</h2>
             <div ref={tvAiringRef} className="tv-airing-movies">
                 {tvPopular.map(item=><Movie id={"tvPopular"+item.id} data={item} />)}
