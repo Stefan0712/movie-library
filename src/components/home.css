@@ -118,6 +118,7 @@
     .featured-movie-info-container{
         color: white;
         padding: 10px;
+        width: 96vw;
     }
     .featured-movie-info-container h2{
         margin-bottom: 20px;

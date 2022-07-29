@@ -1,5 +1,4 @@
 import "./home.css"
-import { useOutletContext } from "react-router-dom";
 import Movie from "./Movie";
 import { useState, useRef, useEffect } from "react";
 
@@ -13,7 +12,6 @@ const Home = () => {
     const popularContainerRef = useRef()
     const incomingMoviesRef = useRef()
     const tvAiringRef = useRef()
-    const tvPopularRef = useRef()
 //state for scroll position for the popular movies arrows
     const [scrollPosition, setScrollPosition] = useState(0)
 //state for movies array for each category
@@ -82,6 +80,11 @@ const Home = () => {
     <div className="home-body">
         <button id="scroll-to-top-btn" onClick={scrollToTheTop}>^</button>
         <div className="featured-movie-container">
+
+            <div className="featured-movie-img-container">
+                <img id="featured-img" src={`https://image.tmdb.org/t/p/w1280${featured.poster_path}`} alt={featured.title}></img>
+            </div>
+           
         <div className="featured-movie-info-container">
                 <div className="featured-release">{featured.release_date}</div>
                 <div className="featured-vote-count">Vote count: {featured.vote_count}</div>
@@ -90,11 +93,6 @@ const Home = () => {
                 <div className="featured-overview">{featured.overview}</div>
 
             </div>
-
-            <div className="featured-movie-img-container">
-                <img id="featured-img" src={`https://image.tmdb.org/t/p/w1280${featured.poster_path}`} alt={featured.title}></img>
-            </div>
-           
             
         </div>
         <div className="popular-movies-container">
