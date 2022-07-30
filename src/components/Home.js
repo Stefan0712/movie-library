@@ -54,7 +54,7 @@ const Home = () => {
         fetch(TV_POPULAR_API).then(res=>res.json()
         ).then(data =>{
           setTvPopular(data.results)
-          console.log(data.results)
+          
         })
 
         

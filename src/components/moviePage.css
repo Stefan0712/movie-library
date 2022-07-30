@@ -1,0 +1,16 @@
+.movie-page-body{
+    position: fixed;
+    width: 100vw;
+    height: calC(100vh - 50px);
+    top: 50px;
+    left: 0px;
+    background-color: #082032;
+    z-index: 10;
+    color: white;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.show-info{
+}

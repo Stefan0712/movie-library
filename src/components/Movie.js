@@ -1,7 +1,8 @@
 
 import "./movie.css"
 import noPhoto from '../images/no-photo.png'
-import { useEffect, useState  } from "react"
+import { useEffect, useState, useRef  } from "react"
+import MoviePage from "./MoviePage"
 
 
 const Movie = (props) => {
@@ -9,6 +10,10 @@ const Movie = (props) => {
     const IMG_API = "https://image.tmdb.org/t/p/w1280"
     const [name,setName] = useState()
     const [date, setDate] = useState()
+    const infoCompRef = useRef()
+    const [isInfoActive, setIsInfoActive] = useState(false)
+    const [infoPage, setInfoPage] = useState([])
+
 
 useEffect(()=>{
     if(props.data.title===undefined){
@@ -21,16 +26,32 @@ useEffect(()=>{
     }else{
         setDate(props.data.release_date)
     }
+
+    
 },[])
 
+const handleShowInfo = () =>{
 
+    if(isInfoActive===false){
+        setInfoPage(<MoviePage data={props.data} />)
+        setIsInfoActive(true)
+    }else if(isInfoActive===true){
+
+        setInfoPage()
+        setIsInfoActive(false)
+    }
+}
     return ( 
-            <div className="movie-container" id={props.data.id}>
+            <div  className="movie-container" id={props.data.id} onClick={handleShowInfo}>
+              
+                <div ref={infoCompRef} className="show-info">{infoPage}</div>
+
                 <div className="poster-container">
                 <object data={IMG_API+props.data.poster_path} type="image/png" alt={name} className="movie-posters">
                     <img className="movie-posters" src={noPhoto} alt={props.data.title}></img>
                 </object>
                 </div>
+                
                 <div className="info-section">
 
                     <div className="movie-title">{name}</div>
@@ -43,6 +64,7 @@ useEffect(()=>{
                     <h3>Overview:</h3>
                     {props.data.overview}
                 </div>
+                
             </div>
 
 
