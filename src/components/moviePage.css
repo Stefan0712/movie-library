@@ -1,16 +1,62 @@
 .movie-page-body{
-    position: fixed;
     width: 100vw;
     height: calC(100vh - 50px);
     top: 50px;
     left: 0px;
     background-color: #082032;
-    z-index: 10;
+    z-index: 15;
     color: white;
-    font-size: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow: none;
+    
+
 }
-.show-info{
+.current-movie-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    width: 90vw;
+    padding: 10px;
+}
+.current-movie-info #title{
+    font-size: 30px;
+}
+.current-movie-info .desc{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+    
+}
+
+.current-movie-info #overview{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.current-movie-info #tag-line{
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.current-movie-info .image-container{
+   grid-column: 2/3;
+   grid-row: 1/4;
+}
+
+.current-movie-info .image-container img{
+    height: 400px;
+    width: auto;
+}
+.recommended-movies-container{
+    height: 400px;
+    display: flex;
+    overflow-x: scroll;
+    background-color: #082032c5;
+    padding-top: 20px;
+    position: relative;
+    width: 99vw;
+    
 }

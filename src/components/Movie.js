@@ -3,6 +3,7 @@ import "./movie.css"
 import noPhoto from '../images/no-photo.png'
 import { useEffect, useState, useRef  } from "react"
 import MoviePage from "./MoviePage"
+import {Link} from "react-router-dom"
 
 
 const Movie = (props) => {
@@ -28,29 +29,22 @@ useEffect(()=>{
     }
 
     
-},[])
+},[props])
 
-const handleShowInfo = () =>{
-
-    if(isInfoActive===false){
-        setInfoPage(<MoviePage data={props.data} />)
-        setIsInfoActive(true)
-    }else if(isInfoActive===true){
-
-        setInfoPage()
-        setIsInfoActive(false)
-    }
+const handleMovieClick = (clickData) =>{
+    console.log(clickData)
 }
     return ( 
-            <div  className="movie-container" id={props.data.id} onClick={handleShowInfo}>
-              
+            <div  className="movie-container" id={props.data.id} onClick={()=>handleMovieClick(props.data.id)}>
+                
                 <div ref={infoCompRef} className="show-info">{infoPage}</div>
-
+                <Link to={"/"+props.data.id}>
                 <div className="poster-container">
                 <object data={IMG_API+props.data.poster_path} type="image/png" alt={name} className="movie-posters">
                     <img className="movie-posters" src={noPhoto} alt={props.data.title}></img>
                 </object>
                 </div>
+                
                 
                 <div className="info-section">
 
@@ -64,6 +58,7 @@ const handleShowInfo = () =>{
                     <h3>Overview:</h3>
                     {props.data.overview}
                 </div>
+                </Link>
                 
             </div>
 
