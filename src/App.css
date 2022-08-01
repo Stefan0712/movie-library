@@ -30,7 +30,7 @@ nav{
   border: 1px solid black;
   display: flex;
   background-color: #082032;
-  z-index: 4;
+  z-index: 5;
 }
 #logo{
   height: 50px;
@@ -95,14 +95,17 @@ footer{
   background-color: #ff4d29;
 }
 .nav-links-mobile{
-  display: none;
   flex-direction: column;
-  position: sticky;
-  top: 50px;
-  width: 101%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
   background-color: #082032;
   height: 200px;
   z-index: 4;
+  transform: translateY(-200%);
+  transition: all 0.5s;
+
 }
 .nav-links-mobile a{
   text-decoration: none;
@@ -127,20 +130,24 @@ footer{
   bottom: 25px;
   z-index: 5
 }
+.activateMenu{
+  transform: translateY(50px);
+}
 
 
 @media only screen and (max-width: 768px) {
   
   /* For mobile phones: */
-  .nav-menu-btn{
-    visibility: visible;
-  }
+  
   .nav-links{
     display: none;
   }
   .nav-links-mobile{
-    display: none;
+    
   
+  }
+  .nav-menu-btn{
+    visibility: visible;
   }
  
   .nav-links-mobile a:hover{

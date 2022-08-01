@@ -67,6 +67,7 @@
     .movie-container{
         height: calc((90vw / 2) * 1.8);
         width: calc(90vw / 2);
+        min-width: 250px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -84,6 +85,9 @@
         gap: 10px;
         font-size: 1em;
         padding: 5px;
+    }
+    .vote-count{
+        width: 100%;
     }
 
 }

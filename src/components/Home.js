@@ -62,17 +62,7 @@ const Home = () => {
   
 
 //functions for Popular movies arrows
-    const scrollToRight = () =>{
-         
-        popularContainerRef.current.scrollTo(scrollPosition+100,0)
-        setScrollPosition((scrollPosition)=>scrollPosition+100)
-        
-        
-    }
-    const scrollToLeft = () =>{
-        popularContainerRef.current.scrollTo(scrollPosition-100,0)
-        setScrollPosition((scrollPosition)=>scrollPosition-100)
-    }
+  
     const scrollToTheTop = () =>{
         window.scrollTo(0,0)
     }
@@ -99,9 +89,7 @@ const Home = () => {
             <h2 className="categories-text">Popular movies</h2>
             <div ref={popularContainerRef} className="popular-movies">
 
-                    <div className="home-arrows" id="home-left-arrow" onClick={scrollToLeft}>&#171;</div>
                     {popularMovies.map(item=><Movie id={"popular"+item.id} data={item} />)}
-                    <div className="home-arrows" id="home-right-arrow" onClick={scrollToRight}>&#187;</div>
             </div>
         </div>
         <div className="incoming-movies-container">

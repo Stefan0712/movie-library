@@ -9,23 +9,24 @@ function App() {
   const navMenuRef = useRef()
   //keeps track if the menu is active or not
   const [isMenuActive, setIsMenuActive] = useState(false)
+  const [menuClass, setMenuClass] = useState("nav-links-mobile")
 
   const handleMenuBtn = () =>{
     //checks if the menu is active 
     if(isMenuActive===false){
       //set menu status to true and makes it visible
       setIsMenuActive(true);
-      navMenuRef.current.style.display = "flex";
+      setMenuClass("nav-links-mobile activateMenu")
     }else if(isMenuActive===true){
       //set menu status to false and make it invisible
       setIsMenuActive(false);
-      navMenuRef.current.style.display = "none";
+      setMenuClass("nav-links-mobile")
     }
   }
   const handleMenubtnClick = ()=>{
     //on any nav bar button click, the menu is deactivated
       setIsMenuActive(false);
-      navMenuRef.current.style.display = "none";
+      setMenuClass("nav-links-mobile")
   }
 
 
@@ -36,7 +37,7 @@ function App() {
           <img src={logo} alt="logo" id="logo"></img>
         </div>
        {/*Nav bar menu with links that is always active on the navbar, for bigger screens */}
-        <div className='nav-links'>
+        <div className={menuClass}>
           <Link to="./search" onClick={handleMenubtnClick}><img src={searchIcon} alt="search icon" id="search-icon"></img>Search</Link>
           <Link to="./home" onClick={handleMenubtnClick}>Home</Link>
           <Link to="./top" onClick={handleMenubtnClick}>Top Movies</Link>

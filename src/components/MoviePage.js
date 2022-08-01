@@ -33,16 +33,18 @@ useEffect(()=>{
         
 
 },[movieId,details])
+const scrollToTheTop = () =>{
+    window.scrollTo(0,0)
+}
 
     return ( 
 
 
         <div className="movie-page-body">
+            <button id="scroll-to-top-btn" onClick={scrollToTheTop}>^</button>
             <div className="current-movie-info">
+                    <div id="title">{details.title}</div>
 
-                <div id="title">
-                    {details.title}
-                </div>
                 <div className="overview">
                     <h2>Overview</h2>
                     <div id="tag-line">{details.tagline}</div>
@@ -65,7 +67,7 @@ useEffect(()=>{
                 </div>
             </div>
             <div className="recommended-movies">
-
+            <h1>Recommended movies</h1>
             <div className="recommended-movies-container">
                 {similar.map(item=><Movie id={"similar"+item.id} data={item} />)}
             </div>

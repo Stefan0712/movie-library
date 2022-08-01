@@ -9,7 +9,7 @@
 
 
 .popular-movies{
-    height: 400px;
+    height: auto;
     display: flex;
     overflow-x: scroll;
     background-color: #082032c5;
@@ -46,7 +46,7 @@
 
 .incoming-movies,
 .tv-airing-movies{
-    height: 400px;
+    height: auto;
     display: flex;
     overflow-x: scroll;
     background-color: #082032c5;
@@ -117,8 +117,8 @@
     }
     .featured-movie-info-container{
         color: white;
-        padding: 10px;
-        width: 96vw;
+        padding: 20px;
+        width: 90vw;
     }
     .featured-movie-info-container h2{
         margin-bottom: 20px;
@@ -136,7 +136,7 @@
     #featured-img{
         margin-top: 10px;
         height: auto;
-        width: calc(100% - 10px);
+        width: 100%;
     }
     
     .featured-release{
