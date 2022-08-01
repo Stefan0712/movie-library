@@ -16,10 +16,13 @@ const MoviePage = () => {
 
 
 useEffect(()=>{
+    
+    //fetch details and similar movies data
     fetch(DETAILS_API).then(res=>res.json()).then(
         data=>{
             setGenres([])
             setDetails(data)
+            //since there might me more genres, it  map over them and add to an array
             data.genres.map(item=>setGenres(genres=>[...genres, item.name]))
             
         }
@@ -33,6 +36,7 @@ useEffect(()=>{
         
 
 },[movieId,details])
+//scroll to top function 
 const scrollToTheTop = () =>{
     window.scrollTo(0,0)
 }

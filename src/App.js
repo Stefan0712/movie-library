@@ -14,11 +14,11 @@ function App() {
   const handleMenuBtn = () =>{
     //checks if the menu is active 
     if(isMenuActive===false){
-      //set menu status to true and makes it visible
+      //set menu status to true and makes it visible by adding activeMenu class
       setIsMenuActive(true);
       setMenuClass("nav-links-mobile activateMenu")
     }else if(isMenuActive===true){
-      //set menu status to false and make it invisible
+      //set menu status to false and make it invisible by removing activeMenu class
       setIsMenuActive(false);
       setMenuClass("nav-links-mobile")
     }

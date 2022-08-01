@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 
 
 const Movie = (props) => {
-
+    //api for getting poster image
     const IMG_API = "https://image.tmdb.org/t/p/w1280"
     const [name,setName] = useState()
     const [date, setDate] = useState()
@@ -15,7 +15,7 @@ const Movie = (props) => {
     const [isInfoActive, setIsInfoActive] = useState(false)
     const [infoPage, setInfoPage] = useState([])
 
-
+//checks for both name or title, since they are called different for TV series and movies
 useEffect(()=>{
     if(props.data.title===undefined){
         setName(props.data.name)
@@ -31,14 +31,12 @@ useEffect(()=>{
     
 },[props])
 
-const handleMovieClick = (clickData) =>{
-    console.log(clickData)
-}
+
     return ( 
-            <div  className="movie-container" id={props.data.id} onClick={()=>handleMovieClick(props.data.id)}>
+            <div  className="movie-container" id={props.data.id}>
                 
                 <div ref={infoCompRef} className="show-info">{infoPage}</div>
-                <Link to={"/"+props.data.id}>
+                <Link to={"/"+props.data.id} onClick={()=>window.scrollTo(0,0)}>
                 <div className="poster-container">
                 <object data={IMG_API+props.data.poster_path} type="image/png" alt={name} className="movie-posters">
                     <img className="movie-posters" src={noPhoto} alt={props.data.title}></img>
