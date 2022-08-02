@@ -37,7 +37,7 @@ function App() {
           <img src={logo} alt="logo" id="logo"></img>
         </div>
        {/*Nav bar menu with links that is always active on the navbar, for bigger screens */}
-        <div className={menuClass}>
+        <div className="nav-links">
           <Link to="./search" onClick={handleMenubtnClick}><img src={searchIcon} alt="search icon" id="search-icon"></img>Search</Link>
           <Link to="./home" onClick={handleMenubtnClick}>Home</Link>
           <Link to="./top" onClick={handleMenubtnClick}>Top Movies</Link>
@@ -56,7 +56,7 @@ function App() {
       </nav>
       <div className="app-body">
         {/*menu with links that is active on mobile devices and smaller screens */}
-      <div ref={navMenuRef} className='nav-links-mobile'>
+      <div ref={navMenuRef} className={menuClass}>
           <Link to="./search" onClick={handleMenubtnClick}><img src={searchIcon} alt="search icon" id="search-icon"></img>Search</Link>
           <Link to="./home" onClick={handleMenubtnClick}>Home</Link>
           <Link to="./top" onClick={handleMenubtnClick}>Top Movies</Link>
