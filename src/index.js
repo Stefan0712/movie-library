@@ -7,6 +7,10 @@ import Top from './components/Top';
 import About from './components/About';
 import Search from './components/Search';
 import MoviePage from './components/MoviePage';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Account from './components/Account';
+import UpdateProfile from './components/UpdateProfile'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +25,11 @@ root.render(
     <Route path="/top" element={<Top />} />
     <Route path="/about" element={<About />} />
     <Route path=":movieId" element={<MoviePage />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+    <Route path="/account" element={<Account />} />
+    <Route path="/update-profile" element={<UpdateProfile />} />
+
 
 
   </Route>

@@ -1,0 +1,39 @@
+.account-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+    width: 100%;
+    flex-direction: column;
+    
+}
+.account-body .user-info{
+    background-color: #082032;
+    height: 80%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+
+}
+.account-body .user-profile-picture{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.account-body .personal-info{
+    display: grid;
+    color: white;
+    padding-top: 50px;
+}
+.account-body .personal-info button{
+    height: 30px;
+    width: 100px;
+    margin-left: calc((calc(75% / 5) * 3) - 50px)
+}
+.account-body .user-profile-picture img{
+    width: 10vh;
+    height: 10vh;
+}
