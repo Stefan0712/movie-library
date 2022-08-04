@@ -11,6 +11,7 @@ const Account = () => {
     const [updatedEmail, setUpdatedEmail] = useState()
     const [updatedName, setUpdatedName] = useState()
     const [updatedPassword, setUpdatedPassword] = useState()
+    const [msg, setMsg] = useState('')
     
 
     const auth = getAuth()
@@ -18,29 +19,30 @@ const Account = () => {
     useEffect(()=>{
         onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser);
-            console.log(user)
         })
     },[])
     const updateGeneralInfo = () =>{
         if(updatedName){
-            updateProfile(auth.currentUser, {displayName: updatedName}).then(()=>console.log("Name successfully updated!")).catch(
+            updateProfile(auth.currentUser, {displayName: updatedName}).then(()=>setMsg("Changes successfully saved!")).catch(
                 error=>{
-                    console.log(error)
+                setMsg(error.message)
                 if(error.message==="Firebase: Error (auth/requires-recent-login)."){
                     logout();
                 }
+                
             }
             )
         }
     }
     const updatePersonalInfo = () =>{
         if(updatedEmail){
-            updateEmail(auth.currentUser, updatedEmail).then(()=>console.log("Email successfully updated!")).catch(
+            updateEmail(auth.currentUser, updatedEmail).then(()=>setMsg("Changes successfully saved!")).catch(
                 error=>{
                     console.log(error)
                 if(error.message==="Firebase: Error (auth/requires-recent-login)."){
                     logout();
                 }
+                
             }
             )
         }
@@ -56,6 +58,7 @@ const Account = () => {
     return ( 
     <div className="update-profile-body">
         <div className="user-info">
+            <div id="update-msg">{msg}</div>
             <div className="general-info">
                     <h2>General info</h2>
                     <label>Profile picture</label>
@@ -73,6 +76,7 @@ const Account = () => {
                     <div id="update-password"> <input type="password" placeholder="New password" onChange={(event)=>{setUpdatedPassword(event.target.value)}}></input></div>
                     <button onClick={updatePersonalInfo}>Save</button>
                 </div>  
+                <div id="go-back-to-profile-link"><Link to="/account">Go back to your profile</Link></div>
             </div>
            
             

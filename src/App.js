@@ -3,6 +3,7 @@ import './App.css';
 import logo from "./logo.png"
 import searchIcon from "./images/search.png"
 import {useEffect, useRef, useState} from "react"
+import {getAuth} from 'firebase/auth'
 
 function App() {
   const navMenuBtnRef = useRef()
@@ -10,6 +11,8 @@ function App() {
   //keeps track if the menu is active or not
   const [isMenuActive, setIsMenuActive] = useState(false)
   const [menuClass, setMenuClass] = useState("nav-links-mobile")
+  const auth = getAuth()
+  
 
   const handleMenuBtn = () =>{
     //checks if the menu is active 

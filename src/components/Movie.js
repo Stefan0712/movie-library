@@ -1,6 +1,8 @@
 
 import "./movie.css"
 import noPhoto from '../images/no-photo.png'
+import starOn from '../images/star-on.png'
+import starOff from '../images/star-off.png'
 import { useEffect, useState, useRef  } from "react"
 import MoviePage from "./MoviePage"
 import {Link} from "react-router-dom"
@@ -14,6 +16,7 @@ const Movie = (props) => {
     const infoCompRef = useRef()
     const [isInfoActive, setIsInfoActive] = useState(false)
     const [infoPage, setInfoPage] = useState([])
+    const [favImg, setFavImg] = useState(starOff)
 
 //checks for both name or title, since they are called different for TV series and movies
 useEffect(()=>{
@@ -30,10 +33,17 @@ useEffect(()=>{
 
     
 },[props])
-
+const handleFav = () =>{
+    if(favImg===starOff){
+        setFavImg(starOn)
+    }else{
+        setFavImg(starOff)
+    }
+}
 
     return ( 
             <div  className="movie-container" id={props.data.id}>
+                <div className="movie-fav-btn" onClick={handleFav}><img src={favImg} alt="favorite button image"></img></div>
                 
                 <div ref={infoCompRef} className="show-info">{infoPage}</div>
                 <Link to={"/"+props.data.id} onClick={()=>window.scrollTo(0,0)}>
