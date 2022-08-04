@@ -72,7 +72,7 @@ const Account = () => {
                     <label>Password</label>
                     <div id="update-password"> <input type="password" placeholder="New password" onChange={(event)=>{setUpdatedPassword(event.target.value)}}></input></div>
                     <button onClick={updatePersonalInfo}>Save</button>
-                </div>   
+                </div>  
             </div>
            
             

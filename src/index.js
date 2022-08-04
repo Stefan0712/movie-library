@@ -11,6 +11,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Account from './components/Account';
 import UpdateProfile from './components/UpdateProfile'
+import ResetPassword from './components/ResetPassword';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -29,6 +30,8 @@ root.render(
     <Route path="/signup" element={<Signup />} />
     <Route path="/account" element={<Account />} />
     <Route path="/update-profile" element={<UpdateProfile />} />
+    <Route path="/reset-password" element={<ResetPassword />} />
+
 
 
 

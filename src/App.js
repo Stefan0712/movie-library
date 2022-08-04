@@ -62,6 +62,7 @@ function App() {
           <Link to="./home" onClick={handleMenubtnClick}>Home</Link>
           <Link to="./top" onClick={handleMenubtnClick}>Top Movies</Link>
           <Link to="./about" onClick={handleMenubtnClick}>About</Link>
+          <Link to="./account" onClick={handleMenubtnClick}>Account</Link>
         </div>
         <Outlet />
       </div>
