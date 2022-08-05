@@ -2,36 +2,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 100px);
+    height: auto;
     width: 100%;
     flex-direction: column;
+    padding-top: 50px;
     
 }
 .account-body .user-info{
     background-color: #082032;
-    height: 80%;
+    height: 50%;
     width: 80%;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 2fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
 
 }
 .account-body .user-profile-picture{
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .account-body .personal-info{
-    display: grid;
+    display: flex;
     color: white;
     padding-top: 50px;
+}
+.personal-info div{
+    margin-bottom: 15px;
 }
 .account-body .personal-info button{
     height: 30px;
     width: 100px;
-    margin-left: calc((calc(75% / 5) * 3) - 50px)
+    margin-top: 20px;
+    
 }
 .account-body .user-profile-picture img{
     width: 10vh;
@@ -41,6 +45,7 @@
     height: 50px;
     width: 200px;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 20px;
     align-self: center;
 }
@@ -61,4 +66,22 @@
 }
 .no-user{
     color: white;
+}
+.fav-movies-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fav-movies-container h2{
+    color: white;
+    margin: 20px;
+}
+.fav-movies{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 390px;
+    overflow-x: scroll;
+    background-color: #082032;
+    align-items: center;
 }

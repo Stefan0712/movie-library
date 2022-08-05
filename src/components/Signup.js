@@ -40,7 +40,6 @@ const Signup = () => {
             <Link to="/login">Login</Link>
 
 
-            <div className="current-user">{user?.email}</div>
 
     
         </form>

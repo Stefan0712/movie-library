@@ -33,6 +33,7 @@ const Home = () => {
 
             let randomTemp = Math.round(Math.random()* (19 - 0 + 1) + 0)
             setFeatured(data.results[randomTemp])
+            console.log(data.results)
             
   
         })
@@ -42,6 +43,7 @@ const Home = () => {
         fetch(INCOMING_API).then(res=>res.json()
         ).then(data =>{
           setIncomingMovies(data.results)
+          
         })
 
         //tv airing api fetch

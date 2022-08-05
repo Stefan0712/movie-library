@@ -4,8 +4,10 @@ import noPhoto from '../images/no-photo.png'
 import starOn from '../images/star-on.png'
 import starOff from '../images/star-off.png'
 import { useEffect, useState, useRef  } from "react"
-import MoviePage from "./MoviePage"
 import {Link} from "react-router-dom"
+import { db } from '../firebase-config'
+import { doc, getDoc, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
 
 
 const Movie = (props) => {
@@ -14,12 +16,34 @@ const Movie = (props) => {
     const [name,setName] = useState()
     const [date, setDate] = useState()
     const infoCompRef = useRef()
-    const [isInfoActive, setIsInfoActive] = useState(false)
     const [infoPage, setInfoPage] = useState([])
     const [favImg, setFavImg] = useState(starOff)
+    const [favMovies, setFavMovies] = useState([])
+    const [user, setUser] = useState()
+    const auth = getAuth();
 
 //checks for both name or title, since they are called different for TV series and movies
 useEffect(()=>{
+    onAuthStateChanged(auth, (currentUser)=>{
+        setUser(currentUser);
+        if(currentUser){
+
+            async function getFirestoreData(){ 
+               
+    
+                const docRef = doc(db, "users",currentUser.uid);
+                const docSnap = await getDoc(docRef);
+        
+                let temp = docSnap.data()
+                setFavMovies(temp.movies)
+                if(temp.movies.indexOf(props.data.id)>=0){
+                    setFavImg(starOn)
+                }
+            }
+            getFirestoreData()
+        }
+        
+    })
     if(props.data.title===undefined){
         setName(props.data.name)
     }else{
@@ -30,15 +54,34 @@ useEffect(()=>{
     }else{
         setDate(props.data.release_date)
     }
-
+    
+    
     
 },[props])
+
+    
+
 const handleFav = () =>{
     if(favImg===starOff){
         setFavImg(starOn)
     }else{
         setFavImg(starOff)
     }
+    
+    const docRef = doc(db, "users",user.uid);
+    if(favMovies.indexOf(props.data.id)>=0){
+        updateDoc(docRef, {
+            "movies": arrayRemove(props.data.id)
+        });
+        let temp = favMovies;
+        temp.splice(temp.indexOf(props.data.id),1);
+        setFavMovies(temp)
+    }else{
+        updateDoc(docRef, {
+            "movies": arrayUnion(props.data.id)
+        });
+    }
+    
 }
 
     return ( 

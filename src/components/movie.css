@@ -70,6 +70,7 @@
     justify-content: center;
     background-color: #04293A;
     border-radius: 5px;
+    z-index: 5;
 
 }
 .movie-fav-btn img{
@@ -83,8 +84,8 @@
 @media only screen and (max-width: 768px) {
 
     .movie-container{
-        height: calc((90vw / 2) * 1.8);
-        width: calc(90vw / 2);
+        max-height: 360px; 
+        max-width: 200px;
         min-width: 250px;
         display: flex;
         flex-direction: column;
@@ -92,8 +93,8 @@
     }
     
     .movie-posters{
-        height: calc((80vw / 2) * 1.40);
-        width: calc((100vw / 2))
+        min-height: 200px;
+        min-width: 250px;
     }
     .info-section{
         display: flex;

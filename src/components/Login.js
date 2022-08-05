@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import './login.css'
 import {useState, useEffect} from "react"
-import {auth} from '../firebase-config'
-import { signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
-import Account from "./Account"
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
+import {auth, db} from '../firebase-config'
+import { doc, getDoc, setDoc } from "firebase/firestore"
 
 
 
@@ -18,7 +18,16 @@ const Login = () => {
     useEffect(()=>{
         onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser);
+            if(currentUser){
+
+                const ref = doc(db, "users", currentUser.uid,{"movies":[]})
+                
+                setDoc(ref,{merge: true})
+                    
+            }
+           
         })
+
     },[])
 
     const login = async (event) =>{
