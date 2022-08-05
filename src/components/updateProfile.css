@@ -59,3 +59,45 @@
     margin-top: 30px;
     height: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+
+    .update-profile-body .user-info{
+        width: 100%;
+        height: 100%;
+    }    
+    .update-profile-body button{
+        height: 50px;
+        width: 250px;
+        background-color: white;
+    }
+    .update-profile-body input{
+        width: 90vw;
+        height: 50px;
+        border-radius: 0px;
+        font-size: 20px;
+    }
+    .update-profile-body .general-info,
+    .update-profile-body .personal-info{
+        padding: 0px;
+        align-items: center;
+    }
+    .update-profile-body label{
+        margin-left: 20px;
+        font-size: 20px;
+        width: 90%;
+    }
+    #img-input{
+        border: none;
+        margin-left: 20px;
+   }
+   .update-profile-body h2{
+    margin-left: 20px;
+   }
+   #go-back-to-profile-link a{
+    font-size: 25px;
+
+}
+
+
+}

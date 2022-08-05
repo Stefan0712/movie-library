@@ -6,6 +6,7 @@
     width: 100%;
     flex-direction: column;
     padding-top: 50px;
+    padding-bottom: 50px;
     
 }
 .account-body .user-info{
@@ -84,4 +85,24 @@
     overflow-x: scroll;
     background-color: #082032;
     align-items: center;
+}
+@media only screen and (max-width: 768px) {
+    .account-body{
+        padding: 0px;
+    }
+    .account-body .user-info{
+        height: 100%;
+        width: 100%;
+    }
+    .account-body .user-info{
+        height: 100%;
+        font-size: 20px;
+
+    }
+    .account-body .personal-info button{
+        height: 50px;
+        width: 200px;
+        font-size: 20px;
+    }
+
 }

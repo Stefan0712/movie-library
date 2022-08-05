@@ -90,8 +90,8 @@ const Account = () => {
                     {favMovies}
                 </div>
             </div>
-        </div>
         <button id="profile-logout-button" onClick={logout}>Log out</button> 
+        </div>
        
     </div> 
     );
