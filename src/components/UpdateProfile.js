@@ -22,11 +22,15 @@ const Account = () => {
         })
     },[])
     const updateGeneralInfo = () =>{
+        //checks if there was inputted any name
         if(updatedName){
+            //use the updateProfile() function from firebase to update the displayName, then shows a message 
             updateProfile(auth.currentUser, {displayName: updatedName}).then(()=>setMsg("Changes successfully saved!")).catch(
                 error=>{
+                    //if it fails, it shows an error
                 setMsg(error.message)
                 if(error.message==="Firebase: Error (auth/requires-recent-login)."){
+                    //if the error is caused because you need to log in again, you get logged out automatically
                     logout();
                 }
                 
@@ -34,12 +38,18 @@ const Account = () => {
             )
         }
     }
+    //updated the personal info section, since it uses a different function for each info
     const updatePersonalInfo = () =>{
+        //checks if there were any email inputted
         if(updatedEmail){
+            //if true, will update the email then show a confirmation message
             updateEmail(auth.currentUser, updatedEmail).then(()=>setMsg("Changes successfully saved!")).catch(
                 error=>{
                     console.log(error)
+                    //else it console.log the error and show anmessage
+                    setMsg(error.message)
                 if(error.message==="Firebase: Error (auth/requires-recent-login)."){
+                    //if you need to log in again, you will be logged out automatically
                     logout();
                 }
                 
@@ -47,12 +57,12 @@ const Account = () => {
             )
         }
     }
-
+//firebase logout function
     const logout = async () =>{
         await signOut(auth)
     }
    
-    
+    //renders a different page if there is a logged in user or not
     if(user){
 
     return ( 

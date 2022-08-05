@@ -11,6 +11,7 @@ function App() {
   //keeps track if the menu is active or not
   const [isMenuActive, setIsMenuActive] = useState(false)
   const [menuClass, setMenuClass] = useState("nav-links-mobile")
+
   const auth = getAuth()
   
 
@@ -35,9 +36,10 @@ function App() {
 
   return (
     <div>
+      
       <nav>
         <div className='logo-container'>
-          <img src={logo} alt="logo" id="logo"></img>
+        <Link to="./home"><img src={logo} alt="logo" id="logo"></img></Link>
         </div>
        {/*Nav bar menu with links that is always active on the navbar, for bigger screens */}
         <div className="nav-links">

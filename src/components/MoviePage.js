@@ -2,6 +2,8 @@ import "./moviePage.css"
 import { useEffect, useState } from "react"
 import {useParams} from "react-router-dom"
 import Movie from "./Movie"
+import star from '../images/star.png'
+
 
 const MoviePage = () => {
     
@@ -27,6 +29,7 @@ useEffect(()=>{
             
         }
             )
+            //get similar movies using the similar movies api uld
     fetch(SIMILAR_API).then(res=>res.json()).then(
             data=>{
                 setSimilar(data.results)
@@ -61,7 +64,7 @@ const scrollToTheTop = () =>{
                     <div id="release-date">Release date: {details.release_date}</div>
                     <div id="genres">Genres: {genres.map(item=>"  "+item+" ")}</div>
                     <div id="popularity">Popularity: {details.popularity}</div>
-                    <div id="rating">Rating: {details.vote_average} <img src={"star"} alt="star"></img> {details.vote_count} votes</div>
+                    <div id="rating">Rating: {details.vote_average} <img id="vote-star-img" src={star} alt="star"></img> {details.vote_count} votes</div>
                     <div id="budget">Budget: ${details.budget}</div>
                     <div id="revenue">Revenue: {details.revenue}</div>
                     <div id="status">Status: {details.status}</div>

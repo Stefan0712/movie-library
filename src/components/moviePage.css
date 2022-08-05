@@ -63,6 +63,10 @@
     width: 99vw;
     
 }
+#vote-star-img{
+    width: 10px;
+    height: 10px;
+}
 @media only screen and (max-width: 768px) {
     .movie-page-body{
         height: 100%;

@@ -21,21 +21,25 @@ const Movie = (props) => {
     const [favMovies, setFavMovies] = useState([])
     const [user, setUser] = useState()
     const auth = getAuth();
+    const [msg, setMsg] = useState("")
+    const [msgClass, setMsgClass] = useState("main-msg")
 
-//checks for both name or title, since they are called different for TV series and movies
+
 useEffect(()=>{
     onAuthStateChanged(auth, (currentUser)=>{
         setUser(currentUser);
+        //checks if there is an user logged in
         if(currentUser){
-
+            //function that gets data from firestore
             async function getFirestoreData(){ 
                
-    
+                //ref to the current user's doc
                 const docRef = doc(db, "users",currentUser.uid);
                 const docSnap = await getDoc(docRef);
         
                 let temp = docSnap.data()
                 setFavMovies(temp.movies)
+                //checks if there is a movie already saved, then setting favorite button img to on if it is true
                 if(temp.movies.indexOf(props.data.id)>=0){
                     setFavImg(starOn)
                 }
@@ -44,6 +48,7 @@ useEffect(()=>{
         }
         
     })
+    //checks for both name or title, since they are called different for TV series and movies
     if(props.data.title===undefined){
         setName(props.data.name)
     }else{
@@ -60,26 +65,38 @@ useEffect(()=>{
 },[props])
 
     
-
+//function that handles clicks for favorite button
 const handleFav = () =>{
-    if(favImg===starOff){
-        setFavImg(starOn)
+    if(user){
+        //switch fav button icon from on to off
+        if(favImg===starOff){
+            setFavImg(starOn)
+        }else{
+            setFavImg(starOff)
+        }
+        //doc ref using current user uid
+        const docRef = doc(db, "users",user.uid);
+        //checks if the current movie id exists in the favMovies state that contains favorite movies
+        if(favMovies.indexOf(props.data.id)>=0){
+            //if true, then it updates the array nammed "movies" with the current movie's id
+            updateDoc(docRef, {
+                "movies": arrayRemove(props.data.id)
+            });
+            //temporarily saved the favMovies state array
+            let temp = favMovies;
+            //removes the clicked movie if it exists in favMovies array
+            temp.splice(temp.indexOf(props.data.id),1);
+            //sets the original state array to the modified one, with the current clicked movie removed
+            setFavMovies(temp)
+        }else{
+            //if false, adds current movie's id to firebase document's movie array for the current user, after this also updating the favMovies array with the correct array
+            updateDoc(docRef, {
+                "movies": arrayUnion(props.data.id)
+            });
+        }
     }else{
-        setFavImg(starOff)
-    }
-    
-    const docRef = doc(db, "users",user.uid);
-    if(favMovies.indexOf(props.data.id)>=0){
-        updateDoc(docRef, {
-            "movies": arrayRemove(props.data.id)
-        });
-        let temp = favMovies;
-        temp.splice(temp.indexOf(props.data.id),1);
-        setFavMovies(temp)
-    }else{
-        updateDoc(docRef, {
-            "movies": arrayUnion(props.data.id)
-        });
+        console.log("You are not logged in")
+       
     }
     
 }
