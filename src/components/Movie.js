@@ -106,7 +106,7 @@ const handleFav = () =>{
                 <div className="movie-fav-btn" onClick={handleFav}><img src={favImg} alt="favorite button image"></img></div>
                 
                 <div ref={infoCompRef} className="show-info">{infoPage}</div>
-                <Link to={"/"+props.data.id} onClick={()=>window.scrollTo(0,0)}>
+                <Link to={"/"+props.type+"/"+props.data.id} onClick={()=>window.scrollTo(0,0)}>
                 <div className="poster-container">
                 <object data={IMG_API+props.data.poster_path} type="image/png" alt={name} className="movie-posters">
                     <img className="movie-posters" src={noPhoto} alt={props.data.title}></img>

@@ -70,36 +70,49 @@
 @media only screen and (max-width: 768px) {
     .movie-page-body{
         height: 100%;
+        width: 100%;
     }
     .current-movie-info{
-        grid-template-rows: 1fr 2fr 2fr 1fr;
-        margin-bottom: 50px;;
+        grid-template-rows: 3fr 1fr 2fr 2fr;
+        grid-template-columns: 1fr;
+        margin-bottom: 50px;
+        width: 100%;
+       
+
     }
-    .current-movie-info .desc{
-        margin-top: 15px;
-        grid-row: 4 / 5;
+    .current-movie-info .image-container{
+        grid-row: 1 / 1;
         grid-column: 1 / 3;
+        width: 100%;
+        height: auto; 
     }
-    
+    .current-movie-info #title{
+        margin-top: 50px;
+        text-align: center;
+        grid-row: 2 / 2;
+    }
     .current-movie-info .overview{
-        grid-row: 2 / 4;
+        grid-row: 3 / 3;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
     }
-    .current-movie-info .image-container{
-        grid-row: 2 / 4;
-        
-    }
-    .current-movie-info #title{
-        margin-top: 50px;
+    .current-movie-info .desc{
+        margin-top: 15px;
         text-align: center;
+        grid-row: 4 / 4;
     }
+    
+   
     .recommended-movies-container{
         flex-wrap: wrap;
         overflow: visible;
         justify-content: center;
+        gap: 15px;
+    }
+    .recommended-movies h1{
+        text-align: center;
     }
 
 }

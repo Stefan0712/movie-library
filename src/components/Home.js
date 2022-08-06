@@ -1,6 +1,6 @@
 import "./home.css"
 import Movie from "./Movie";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 const Home = () => {
@@ -8,12 +8,7 @@ const Home = () => {
     const INCOMING_API = "https://api.themoviedb.org/3/movie/upcoming?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1"
     const TV_AIRING_API = "https://api.themoviedb.org/3/tv/airing_today?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1"
     const TV_POPULAR_API = "https://api.themoviedb.org/3/tv/popular?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1"
-//refs for every category container
-    const popularContainerRef = useRef()
-    const incomingMoviesRef = useRef()
-    const tvAiringRef = useRef()
-//state for scroll position for the popular movies arrows
-    const [scrollPosition, setScrollPosition] = useState(0)
+
 //state for movies array for each category
     const [popularMovies, setPopularMovies] = useState([]);
     const [incomingMovies, setIncomingMovies] = useState([])
@@ -33,7 +28,6 @@ const Home = () => {
 
             let randomTemp = Math.round(Math.random()* (19 - 0 + 1) + 0)
             setFeatured(data.results[randomTemp])
-            console.log(data.results)
             
   
         })
@@ -89,29 +83,29 @@ const Home = () => {
         </div>
         <div className="popular-movies-container">
             <h2 className="categories-text">Popular movies</h2>
-            <div ref={popularContainerRef} className="popular-movies">
+            <div className="popular-movies">
 
-                    {popularMovies.map(item=><Movie id={"popular"+item.id} data={item} />)}
+                    {popularMovies.map(item=><Movie type={"movie"} id={"popular"+item.id} data={item} />)}
             </div>
         </div>
         <div className="incoming-movies-container">
             <h2 className="categories-text">Incoming movies</h2>
-            <div ref={incomingMoviesRef} className="incoming-movies">
-                {incomingMovies.map(item=><Movie id={"incoming"+item.id} data={item} />)}
+            <div className="incoming-movies">
+                {incomingMovies.map(item=><Movie type={"movie"} id={"incoming"+item.id} data={item} />)}
             </div>
             
         </div>
         <div className="-tv-airing-movies-container">
             <h2 className="categories-text">TV airing now</h2>
-            <div ref={tvAiringRef} className="tv-airing-movies">
-                {tvAiring.map(item=><Movie id={"tvAiring"+item.id} data={item} />)}
+            <div className="tv-airing-movies">
+                {tvAiring.map(item=><Movie type={"series"} id={"tvAiring"+item.id} data={item} />)}
             </div>
             
         </div>
         <div className="tv-airing-movies-container">
             <h2 className="categories-text">TV popular</h2>
-            <div ref={tvAiringRef} className="tv-airing-movies">
-                {tvPopular.map(item=><Movie id={"tvPopular"+item.id} data={item} />)}
+            <div className="tv-airing-movies">
+                {tvPopular.map(item=><Movie type={"series"} id={"tvPopular"+item.id} data={item} />)}
             </div>
             
         </div>

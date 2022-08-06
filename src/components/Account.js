@@ -51,7 +51,7 @@ const Account = () => {
                         fetch(DETAILS_API).then(res=>res.json()).then(
                                 data=>{
                                     //builds a Movie component with the data from details api and push it into favMovies state array
-                                    setFavMovies((favMovies)=>[...favMovies,<Movie key={"fav"+id} data={data} />])
+                                    setFavMovies((favMovies)=>[...favMovies,<Movie type={"movie"} key={"fav"+id} data={data} />])
                                 }
                                 )
                     })        

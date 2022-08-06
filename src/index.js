@@ -25,7 +25,7 @@ root.render(
     <Route path="/home" element={<Home />} />
     <Route path="/top" element={<Top />} />
     <Route path="/about" element={<About />} />
-    <Route path=":movieId" element={<MoviePage />} />
+    <Route path=":type/:movieId" element={<MoviePage />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<Signup />} />
     <Route path="/account" element={<Account />} />

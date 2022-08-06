@@ -8,20 +8,29 @@ import star from '../images/star.png'
 const MoviePage = () => {
     
     let { movieId } = useParams();
+    let { type } = useParams();
     const [details, setDetails] = useState([])
     const IMG_API = "https://image.tmdb.org/t/p/w1280"
-    const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId}?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US`
-    const SIMILAR_API = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1`
     const [genres, setGenres] = useState([])
     const [similar, setSimilar] = useState([])
 
 
 
 useEffect(()=>{
-    
+    let api = "";
+    let similar_api = "";
+    //it first checks if the item is a movie or a tv series and set the correct api url
+    if(type==="movie"){
+        api = `https://api.themoviedb.org/3/movie/${movieId}?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US`
+        similar_api = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1`
+    }else if(type==="series"){
+        api = `https://api.themoviedb.org/3/tv/${movieId}?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US`
+        similar_api = `https://api.themoviedb.org/3/tv/${movieId}/similar?api_key=1d23eb17c73e05952dad0294acb0007d&language=en-US&page=1`
+    }
     //fetch details and similar movies data
-    fetch(DETAILS_API).then(res=>res.json()).then(
+    fetch(api).then(res=>res.json()).then(
         data=>{
+            //first it cleans up the genres state
             setGenres([])
             setDetails(data)
             //since there might me more genres, it  map over them and add to an array
@@ -30,7 +39,7 @@ useEffect(()=>{
         }
             )
             //get similar movies using the similar movies api uld
-    fetch(SIMILAR_API).then(res=>res.json()).then(
+    fetch(similar_api).then(res=>res.json()).then(
             data=>{
                 setSimilar(data.results)
 
@@ -50,7 +59,7 @@ const scrollToTheTop = () =>{
         <div className="movie-page-body">
             <button id="scroll-to-top-btn" onClick={scrollToTheTop}>^</button>
             <div className="current-movie-info">
-                    <div id="title">{details.title}</div>
+                <div id="title">{details.title}</div>
 
                 <div className="overview">
                     <h2>Overview</h2>

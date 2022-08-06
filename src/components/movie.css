@@ -101,8 +101,9 @@
 
     .movie-container{
         max-height: 360px; 
-        max-width: 200px;
-        min-width: 250px;
+        max-width: 250px;
+        min-width: 200px;
+        min-height: 310px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -117,9 +118,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        font-size: 1em;
+        gap: 5px;
+        font-size: 0.8em;
         padding: 5px;
+        overflow: hidden;
+        
+    }
+    .info-section #movie-title{
+        height: 3rem;
     }
     .vote-count{
         width: 100%;

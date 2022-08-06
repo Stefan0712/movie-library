@@ -7,20 +7,23 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-left: 20px;
     min-width: 400px;
 }
 .search-box-container #search-box{
-    height: 30px;
-    width: 250px;
+    height: 50px;
+    width: 500px;
     padding-left: 10px;
+    font-size: 20px;
 }
 .search-box-container #search-button{
-    height: 25px;
-    width: 100px;
+    height: 40px;
+    width: 150px;
     margin-left: 25px;
     background-color: #04293A;
     color: white;
+    font-size: 20px;
 }
 .search-box-container #search-button:hover{
     border: 1px solid #ff4d29;
